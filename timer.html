@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel='stylesheet' href='./style.css'>
+    <script src="./db.js"></script>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <script>
+        // if ('serviceWorker' in navigator) {
+        //     navigator.serviceWorker.register('./service-worker.js');
+        // }
+    </script>
+</head>
+
+<body>
+    <!-- <nav>
+        <a href='index.html'>Home</a>
+        <a href='blog.html'>Blog</a>
+        <a href='about.html' class='selected'>About</a>
+    </nav> -->
+    <!-- <div class="wel-name">Welcome... <span id="result"></span>!</div> -->
+    <main>
+        <div class="home-main">
+            <div id="timerContainer">
+                <div class="timer show" id="inpkey" onclick="startTimer()">00:00:00</div>
+                <div class="startTimer reset" id="start-btn" onclick="startTimer()">Start
+                </div>
+                <!-- <div class="pauseTimer reset" id="pinsert" onclick="pauseTimer()">Stop
+                </div> -->
+                <div class="resetTimer reset" id="rinsert" onclick="resetTimer()">Stop</div>
+            </div>
+
+            <div class="nav-button home-a" onclick="goHome()">Home
+            </div>
+
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p>Please stop timer first !</p>
+                    <span class="close">Ok</span>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- <script>
+        document.getElementById("result").innerText = localStorage.getItem("textvalue");
+    </script> -->
+    <script>
+
+
+
+        // window.onbeforeunload = function (e) {
+        //         var e = e || window.event;
+        //         //IE & Firefox
+        //         if (e) {
+        //             e.returnValue = 'Are you sure?';
+        //         }
+        //         // For Safari
+        //          return 'Are you sure?';
+        //     };
+
+        //       window.onbeforeunload = function() {
+        //   return "Did you save your stuff?"
+    //   }
+
+
+
+        //  document.getElementById("inpkey").innerText = localStorage.getItem("pbtnvalue");
+
+        //      if (localStorage.getItem("texttimer") !== null) {
+        //        document.getElementById("inpkey").innerText = localStorage.getItem("texttimer");
+        //        localStorage.removeItem("texttimer");
+        //     }
+        //     else{
+        //         document.getElementById("inpkey").innerText = "00:00:00"
+        //     }
+    </script>
+
+    <script>
+        function goHome() {
+
+            if (istimer == true) {
+
+                var modal = document.getElementById("myModal");
+
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                modal.style.display = "block";
+
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+                return
+            }
+
+            // var key =  document.getElementById('inpkey');
+
+            // // var key = document.getElementById("inpkey").innerText;
+            // // (key != "00:00:00")
+            //  {
+            // const key = document.getElementById("inpkey").innerText;
+            // addData( { name: person, timer: key, date: new Date(), event: "End" }  );
+            //     // localStorage.setItem("texttimer" , key);
+             
+            document.location.href = "index.html";
+        }
+    </script>
+
+    <script>
+
+        // var db = openDatabase('mydb', '1.0', 'logs', 2 * 1024 * 1024);
+        var istimer = false
+        var startTimerButton = document.querySelector('.startTimer');
+        var pauseTimerButton = document.querySelector('.pauseTimer');
+        var timerDisplay =  document.getElementById('inpkey');
+        var startTime;
+        var updatedTime;
+        var difference;
+        var tInterval;
+        var savedTime;
+        var paused = 0;
+        var running = 0;
+        var person =  localStorage.getItem("textvalue")
+        
+
+
+        // LOCAL STORAGE CONST
+
+        const inpkey = document.getElementById("inpkey");
+        const pinsert = document.getElementById("pinsert");
+        const rinsert = document.getElementById("rinsert");
+        const isoutput = document.getElementById("isoutput");
+
+
+
+        function startTimer() {
+            
+            // var db = openDatabase('mydb', '1.0', 'logs', 2 * 1024 * 1024);
+              istimer = true
+             if (running == 1) {
+                 return
+             }
+
+              const key = document.getElementById("inpkey").innerText;
+            //  db.transaction(function (tx) {
+            //      console.log(tx)
+            //      tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (name, timer,timestamp,event)');
+            //      tx.executeSql('INSERT INTO LOGS (name, timer,timestamp,event) VALUES ("' + person + '","' + key + '","' + new Date() + '","START" )');
+
+            //  });
+
+            if (!running) {
+                startTime = new Date().getTime();
+                const key = document.getElementById("inpkey").innerText;
+                addData( { name: person, timer: key, date: new Date(), event: "START" }  )
+                tInterval = setInterval(getShowTime, 1);
+                // change 1 to 1000 above to run script every second instead of every millisecond. one other change will be needed in the getShowTime() function below for this to work. see comment there.   
+
+                 paused = 0;
+                 running = 1;
+                timerDisplay.style.background = "#e9e9e9";
+                timerDisplay.style.cursor = "auto";
+                timerDisplay.style.color = "black";
+                // startTimerButton.classList.add('lighter');
+                // pauseTimerButton.classList.remove('lighter');
+                // startTimerButton.style.cursor = "auto";
+                // pauseTimerButton.style.cursor = "pointer";
+            }
+        }
+
+
+      //  pinsert.onclick =
+        //  function pauseTimer() {
+        //     // var db = openDatabase('mydb', '1.0', 'logs', 2 * 1024 * 1024);
+        //     var timerDisplay =  document.getElementById('inpkey');
+
+        //      if (running == 0) {
+        //          return
+        //      }
+
+        //     // const key = document.getElementById("inpkey").innerText;
+        //     // // var Objectdata = { 'Name': 'A', 'Timer':key, 'Time': new Date() , 'Event' : 'S'};    
+        //     // db.transaction(function (tx) {
+        //     //      console.log(tx)
+        //     //      tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (name, timer,timestamp,event)');
+        //     //      tx.executeSql('INSERT INTO LOGS (name, timer,timestamp,event) VALUES ("' + person + '","' + key + '","' + new Date() + '","STOP" )');
+
+        //     //  });
+
+
+        //     istimer = false
+        //     if (!difference) {
+        //         //    localStorage.setItem(key);
+        //         //   location.reload();
+        //         // if timer never started, don't allow pause button to do anything
+        //     } else if (!paused) {
+                
+        //         clearInterval(tInterval);
+        //         savedTime = difference;
+        //          paused = 1;
+        //          running = 0;
+        //         timerDisplay.style.background = "#e9e9e9";
+        //         timerDisplay.style.color = "black";
+        //         timerDisplay.style.cursor = "pointer";
+        //         startTimerButton.style.cursor = "pointer";
+        //         pauseTimerButton.style.cursor = "auto";
+        //         // const key = document.getElementById("inpkey").innerText;
+        //         // addData( { name: person, timer: key, date: new Date(), event: "Stop" }  )
+        //     }
+        // }
+
+       // rinsert.onclick =
+         function resetTimer() {
+
+    // var db = openDatabase('mydb', '1.0', 'logs', 2 * 1024 * 1024);      
+//  db.transaction(function(tx){   
+//    //  
+//      tx.executeSql('SELECT * FROM LOGS', [], function (tx, results){  
+      
+//     var len = results.rows.length, i;
+//     if(len >= 1 ){  
+//         alert(results)
+//     for (i = 0; i < len; i++) {
+//         alert(results.rows.item(i).timestamp )       
+//     }
+//     }
+//   });    
+// });
+
+
+
+           
+            // var timerDisplay =  document.getElementById('inpkey');
+
+            // if (istimer == true) {
+
+            //     var modal = document.getElementById("myModal");
+
+
+            //     // Get the <span> element that closes the modal
+            //     var span = document.getElementsByClassName("close")[0];
+
+            //     modal.style.display = "block";
+
+
+            //     // When the user clicks on <span> (x), close the modal
+            //     span.onclick = function () {
+            //         modal.style.display = "none";
+            //     }
+
+            //     // When the user clicks anywhere outside of the modal, close it
+            //     window.onclick = function (event) {
+            //         if (event.target == modal) {
+            //             modal.style.display = "none";
+            //         }
+            //     }
+            //     return
+            // }
+
+            // if (paused == 0) {
+            //     return
+            // }
+
+            istimer = false
+
+            clearInterval(tInterval);
+            savedTime = 0;
+            difference = 0;
+            paused = 0;
+            running = 0;
+            const key = document.getElementById("inpkey").innerText;
+            addData( { name: person, timer: key, date: new Date(), event: "END" }  )
+            timerDisplay.innerHTML = '00:00:00';
+            timerDisplay.style.background = "#e9e9e9";
+            timerDisplay.style.color = "black";
+            timerDisplay.style.cursor = "pointer";
+            startTimerButton.style.cursor = "pointer";
+            // pauseTimerButton.style.cursor = "auto";
+
+
+
+
+            //  console.log(key);
+
+        }
+        function getShowTime() {
+            updatedTime = new Date().getTime();
+            if (savedTime) {
+                difference = (updatedTime - startTime) + savedTime;
+            } else {
+                difference = updatedTime - startTime;
+            }
+            // var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            var milliseconds = Math.floor((difference % (1000 * 60)) / 100);
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+            //   milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
+var timerDisplay =  document.getElementById('inpkey');
+          //  alert(timerDisplay )           
+
+ timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds;
+
+        }
+    </script>
+</body>
+
+</html>

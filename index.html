@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel='stylesheet' href='./style.css'>
+    <script src="./db.js"></script>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js');
+        };
+    </script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWA Example">
+    <link rel="apple-touch-icon" href="icon-152x152.png">
+    <meta name="msapplication-TileImage" content="icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+</head>
+
+<body>
+    <!-- <nav> 
+        <a href='index.html' class='selected'>Home</a>
+        <a href='blog.html'>Blog</a>
+        <a href='about.html'>About</a>
+         </nav> -->
+    <main>
+        <div class="home-main">
+                <div class="nav-button">
+                    <a href="timer.html"  onclick="passvalues1()" id="txt1">A</a>
+                </div>
+                <div class="nav-button">
+                    <a href="timer.html" onclick="passvalues2()" id="txt2">J</a>
+                </div>
+                <div class="nav-button">
+                    <a href="timer.html" onclick="passvalues3()" id="txt3">E</a>
+                </div>
+            </form>
+            <div class="nav-button-report">
+                <a href="report.html">Report</a>
+            </div>
+        </div>
+        <!-- Hi there, this is the content area. -->
+    </main>
+
+    <script>
+        
+        function passvalues1(){
+            var firstbtn = document.getElementById("txt1").innerText;
+            localStorage.setItem("textvalue" ,firstbtn);
+            return false;
+        }
+        function passvalues2(){
+            var secondbtn = document.getElementById("txt2").innerText;
+            localStorage.setItem("textvalue" ,secondbtn);
+            return false;
+        }
+        function passvalues3(){
+            var thirdbtn = document.getElementById("txt3").innerText;
+            localStorage.setItem("textvalue" ,thirdbtn);
+            return false;
+        }
+    </script>
+
+</body>
+</html>

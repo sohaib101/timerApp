@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel='stylesheet' href='./style.css'>
+    <script src="./db.js"></script>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js');
+        };
+    </script>
+</head>
+<body>
+    <!-- <nav>
+        <a href='index.html'>Home</a>
+        <a href='blog.html' class='selected'>Blog</a>
+        <a href='about.html'>About</a>
+    </nav> -->
+    <main>
+        <div class="rpt-main">
+            <div class="rpt-nav-button">
+                <a class="rpt-a" href="#javascript">A</a>
+                <label class="rpt-label" for="A">
+                    <p class="rpt-p">Last 24 hours</p><span  class="rpt-span" id="t-A-24"> </span>
+                    <br>
+                    <p class="rpt-p">Last Week</p><span class="rpt-span" id="t-A-week"> </span>
+                    <br>
+                    <p class="rpt-p">Last 30 Days</p><span  class="rpt-span" id="t-A-month"></span>
+                </label>
+            </div>
+            <div class="rpt-nav-button">
+                <a class="rpt-a" href="#javascript">J</a>
+                <label class="rpt-label" for="J">
+                    <p class="rpt-p">Last 24 hours</p><span  class="rpt-span" id="t-J-24" > </span>
+                    <br>
+                    <p class="rpt-p">Last Week</p><span class="rpt-span" id="t-J-week"> </span>
+                    <br>
+                    <p class="rpt-p">Last 30 Days</p><span  class="rpt-span" id="t-J-month"></span>
+                </label>
+            </div>
+            <div class="rpt-nav-button">
+                <a class="rpt-a" href="#javascript">E</a>
+                <label class="rpt-label" for="E">
+                    <p class="rpt-p">Last 24 hours</p><span  class="rpt-span" id="t-E-24"> </span>
+                    <br>
+                    <p class="rpt-p">Last Week</p><span  class="rpt-span" id="t-E-week"> </span>
+                    <br>
+                    <p class="rpt-p">Last 30 Days</p><span  class="rpt-span" id="t-E-month" ></span>
+                </label>
+            </div>
+    
+            <div class="nav-button">
+                <a class="home" href="index.html">Home</a>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+      getData(
+         
+      )
+    </script> 
+
+</body>
+</html>

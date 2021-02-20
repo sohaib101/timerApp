@@ -1,0 +1,274 @@
+ /* body{
+   background-color: black;
+  margin: 0;
+  font-family: arial, sans-serif;
+ }  */
+/* nav{
+  background: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav a{
+    display:inline-block;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+nav a.selected{
+    font-weight: bold;
+}*/
+
+.home-main{
+  margin-top: 50%;
+}
+
+.timer-main{
+  margin-top: 20%;
+}
+
+.nav-button {
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  justify-items: center;
+}
+.nav-button a{
+  font-family: 'Source Sans Pro', sans-serif;
+  align-items: center;
+  font-size: 90px;
+  display: block;
+  padding: 20px 0;
+  width: 90%;
+  font-weight: 300;
+  margin: 60px auto 0px;
+  background-color: blue;
+  color: aliceblue;
+  transition: all ease-in-out 0.2s;
+  text-decoration: none;
+}
+
+.nav-button a:hover {
+  background: #CC0000;
+  color: aliceblue;
+}
+
+.nav-button-report{
+  text-align: center;
+  /* margin-top: 90px; */
+  padding: 0;
+  width: 100%;
+  justify-items: center;
+}
+.nav-button-report a{
+  font-family: 'Source Sans Pro', sans-serif;
+  align-items: center;
+  font-size: 90px;
+  display: block;
+  padding: 20px 0;
+  width: 90%;
+  font-weight: 300;
+  margin: 60px auto 0px;
+  background-color: #CC0000;
+  color: aliceblue;
+  transition: all ease-in-out 0.1s;
+  text-decoration: none;
+}
+
+.nav-button-report a:hover {
+  color: aliceblue;
+}
+.rpt-main{
+  margin: 20% auto;
+}
+.rpt-nav-button{
+  margin: 30px auto;
+  padding: 0;
+  justify-content: center;
+  width: 100%;
+  display: inline-flex;
+  
+}
+.rpt-a{
+  border-radius: 15px 0 0 15px;
+  margin: 0;
+  font-size: 120px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+  width: 15%;
+  font-weight: 600;
+  padding: 75px 30px 75px 30px;
+  background-color: blue;
+  color: aliceblue;
+  transition: all ease-in-out 0.2s;
+  text-decoration: none;
+  border: 1px solid blue;
+}
+.rpt-label{
+  width: 65%;
+  border-radius: 0 15px 15px 0;
+  padding: 23px 0 0 20px;
+  background: whitesmoke;
+}
+.rpt-p{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 50px;
+  display: inline-block;
+  font-weight: 500;
+  margin: 17px 0 0 0;
+  width: 50%;
+  padding: 0;
+  color: grey;
+  text-align: left;
+}
+
+.rpt-span{
+  width: 10%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+  color: #aaaaaa;
+  text-align: center !important;
+}
+
+
+.home-a {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: aliceblue;
+  font-weight: 300;
+  font-size: 75px;
+  padding: 20px 0;
+  width: 90%;
+  margin: 100px auto;
+  background: #CC0000 !important;
+}
+.home {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: aliceblue;
+  font-weight: 300;
+  font-size: 75px;
+  padding: 20px 0;
+  width: 95% !important;
+  margin: 100px auto;
+  background: #CC0000 !important;
+}
+
+#timerContainer {
+  display: block;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  width: 90%;
+  margin: 90px auto;
+  min-height: 60px;
+  border-top: 0px;
+}
+
+.timer {
+  margin-top: 40px;
+  line-height: 150px;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 115px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  background: #e9e9e9;
+  cursor: pointer
+}
+
+.reset {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 75px;
+  margin-top: 40px;
+  background: blue;
+  color: white;
+  width: 100%;
+}
+
+.reset:hover {
+  margin-top: 40px;
+  background: #CC0000;
+}
+
+/* .lighter {
+  background: #CC0000
+} */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  padding-bottom: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 30%;
+  background-color: #e9e9e9;
+  margin: 50% auto;
+  width: 80%;
+}
+
+.modal-content p {
+  color: #CC0000;
+  padding: 150px 0 0 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 60px;
+}
+
+/* The Close Button */
+
+.close {
+  text-shadow: black 0 0 3px;
+  color: white;
+  background: #CC0000;
+  padding: 30px 50px;
+  /* padding: 20px 20px 0 0 ; */
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* .wel-name{
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-top: 80px;
+  font-size: 100px;
+  width: 100%;
+  line-height: 180px;
+  background-color: #CC0000;
+  color: white;
+  text-align: center;
+}
+
+#demo{
+  font-size: 50px;
+} */
